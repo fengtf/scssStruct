@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
       'extension.scssStructureGenerate',
-      async (textEditor) => {
+      async (textEditor: any) => {
         console.log('scssStructureGenerate 执行命令启动');
         if (!textEditor) return console.log('no textEditor');
         const activeDocument = textEditor.document;
@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
               <string>fileStr
             );
             setTimeout(() => {
-              activeDocument.save().then((rst) => {
+              activeDocument.save().then((rst: any) => {
                 console.log('保存结果：', rst);
               });
             }, 0);
