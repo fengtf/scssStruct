@@ -1,0 +1,90 @@
+{
+  "name": "scssStructureGenerate",
+  "displayName": "scssStructureGenerate",
+  "description": "auto scss struct from template for vue",
+  "version": "0.1.0",
+  "author": "1070501516@qq.com",
+  "publisher": "fengtf",
+  "engines": {
+    "vscode": "^1.36.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "asset/icon.png",
+  "keywords": [
+    "scss",
+    "scss",
+    "auto",
+    "auto scss",
+    "auto scss",
+    "scssStructureGenerate"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "bugs": {},
+  "activationEvents": [
+    "onLanguage:vue"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.scssStructureGenerate",
+        "title": "scssStructureGenerate"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.scssStructureGenerate",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "ScssStructureGenerate",
+      "properties": {
+        "scssStructureGenerate.excuteMode": {
+          "type": "string",
+          "description": "在什么情况下重新生成 scss文件(when to excute)",
+          "default": "onCommand",
+          "enum": [
+            "onCommand",
+            "onSave&onCommand"
+          ],
+          "enumDescriptions": [
+            "当使用右键菜单命令 scssStructureGenerate 命令时执行(excute when command)",
+            "当保存时，以及当使用右键菜单命令 scssStructureGenerate 命令时执行(excute when save&command)"
+          ]
+        },
+        "scssStructureGenerate.scssFilePath": {
+          "type": "string",
+          "description": "编译生成的 scss字符串写入的文件路径，不传则默认写入当前 vue 文件的 style 标签内（如果文件不存在则自动创建）",
+          "default": ""
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.36.0",
+    "glob": "^7.1.4",
+    "mocha": "^10.2.0",
+    "typescript": "^3.3.1",
+    "tslint": "^5.12.1",
+    "vscode-test": "^1.0.0-next.0"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}
